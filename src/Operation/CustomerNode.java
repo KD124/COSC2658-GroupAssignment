@@ -4,7 +4,8 @@ import Model.Customer;
 
 public class CustomerNode {
     private Customer customer;
-    private CustomerNode next;
+    private CustomerNode left, right;
+
 
     public CustomerNode(Customer customer) {
         this.customer = customer;
@@ -18,11 +19,19 @@ public class CustomerNode {
         this.customer = customer;
     }
 
-    public CustomerNode getNext() {
-        return next;
+    public CustomerNode getLeft() {
+        return left;
     }
 
-    public void setNext(CustomerNode next) {
-        this.next = next;
+    public void setLeft(CustomerNode left) {
+        this.left = left;
+    }
+
+    public CustomerNode getRight() {
+        return right;
+    }
+
+    public void setRight(CustomerNode right) {
+        this.right = right;
     }
 }
