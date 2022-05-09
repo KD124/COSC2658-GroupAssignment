@@ -44,4 +44,10 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public void updateCustomer(Customer cus){
+        this.firstName = cus.getFirstName();
+        this.lastName = cus.getLastName();
+        this.phone = cus.getPhone();
+    }
 }
