@@ -91,5 +91,27 @@ public class UI {
             }
         }
     }
+        public void option3UI(){
+    System.out.println("Search customer's information by ID" + "\n" +
+        "******************");
+        System.out.println("Enter customer's ID: ");
+        String search_id = scanner.nextLine();
+        if(!search_id.equals("") && get(search_id)!=null)
+        {
+            System.out.println(get(search_id);
+            
+        }else System.out.println("Invalid customer.");
+    }
+    public void option4UI(){
+    System.out.println("Search list of customer's information by ID" + "\n" +
+        "******************");
+        System.out.println("Enter customer's ID: ");
+        String identify_id = scanner.nextLine();
+        if(!identify_id.equals("") && get(search_id)!=null)
+        {
+            System.out.println(get(search_id);
+        }else System.out.println("Invalid customer.");
+
+    }
 }
 
