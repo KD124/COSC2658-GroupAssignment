@@ -69,47 +69,49 @@ public class UI {
         System.out.println("Update customer's information." + "\n" +
                             "******************");
         System.out.print("Customer: ");
-        String update_user = scanner.nextLine();
-        if (!update_user.equals("") && update_user.equals(customer.getId()))
+        String update_user = scanner.nextLine();            // take id input that user want to search for
+        if (!update_user.equals(""))       // check whether user input anything.
         {
+            Customer CusID = customerList.get(update_user);        // searching function in table and store them inn CusID
             System.out.print("Please select information you want to update: ");
             String update_category = scanner.nextLine();
             if (update_category.equalsIgnoreCase("first name"))
             {
                 System.out.print("First name: ");
-                customer.setFirstName(scanner.nextLine());
+                CusID.setFirstName(scanner.nextLine());
             }
             else if (update_category.equalsIgnoreCase("last name"))
             {
                 System.out.print("Last name: ");
-                customer.setLastName(scanner.nextLine());
+                CusID.setLastName(scanner.nextLine());
             }
             else if (update_category.equalsIgnoreCase("phone"))
             {
                 System.out.print("Phone number: ");
-                customer.setPhone(scanner.nextLine());
+                CusID.setPhone(scanner.nextLine());
             }
         }
     }
-        public void option3UI(){
-    System.out.println("Search customer's information by ID" + "\n" +
-        "******************");
+
+    private void option3UI(){
+        System.out.println("Search customer's information by ID" + "\n" +
+                "******************");
         System.out.println("Enter customer's ID: ");
         String search_id = scanner.nextLine();
-        if(!search_id.equals("") && get(search_id)!=null)
+        if(!search_id.equals("") && customerList.get(search_id)!=null)
         {
             System.out.println(get(search_id);
-            
+
         }else System.out.println("Invalid customer.");
     }
-    public void option4UI(){
-    System.out.println("Search list of customer's information by ID" + "\n" +
-        "******************");
+    private void option4UI(){
+        System.out.println("Search list of customer's information by ID" + "\n" +
+                "******************");
         System.out.println("Enter customer's ID: ");
         String identify_id = scanner.nextLine();
-        if(!identify_id.equals("") && get(search_id)!=null)
+        if(!identify_id.equals("") && customerList.get(search_id)!=null)
         {
-            System.out.println(get(search_id);
+            System.out.println(customerList.get(search_id);
         }else System.out.println("Invalid customer.");
 
     }
