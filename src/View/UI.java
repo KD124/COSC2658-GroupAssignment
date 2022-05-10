@@ -105,15 +105,17 @@ public class UI {
         }else System.out.println("Invalid customer.");
     }
     private void option4UI(){
-        System.out.println("Search list of customer's information by ID" + "\n" +
+        System.out.println("Search list of customer's information " + "\n" +
                 "******************");
         System.out.println("Enter customer's ID: ");
         String identify_id = scanner.nextLine();
-        if(!identify_id.equals("") && customerList.get(search_id)!=null)
+        if(!identify_id.equals("")&& customerList.getList(identify_id)!=null)
         {
-            System.out.println(customerList.get(search_id);
-        }else System.out.println("Invalid customer.");
+            System.out.println(customerList.getList(search_id);
+        }else System.out.println("No customer is found.");
 
     }
+}
+
 }
 
