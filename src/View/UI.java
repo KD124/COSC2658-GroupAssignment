@@ -14,7 +14,17 @@ public class UI {
         customerList = new CustomerHashTable();
     }
 
-    //add some UI functions here
+    public void clearScreen(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public void pauseScreen(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPress Enter key to continue...");
+        scanner.nextLine();
+    }
+
     public void RMITMenu() {
         while (true)
         {
