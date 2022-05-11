@@ -2,6 +2,11 @@ package Operation;
 
 import Model.Customer;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class CustomerHashTable {
     private final int tableSize = 5000;
     private CustomerNode[] table;
@@ -35,7 +40,7 @@ public class CustomerHashTable {
         return (23*s.charAt(0) + 29*s.charAt(1) + 31*s.charAt(2) + 37*s.charAt(3) + 41*s.charAt(4)) % tableSize;
     }
 
-    public boolean put(Customer customer){  //return false if there is already this input id in database
+    public boolean put(Customer customer){  //return false if there is already this customer in database
         int idx = hash(customer.getId());
         CustomerNode node = new CustomerNode(customer);
 
@@ -132,9 +137,21 @@ public class CustomerHashTable {
         }
     }
     //read data from csv file here - return true if succeed and false if not
-    //assign the data into appropriate attribute of customer object
-    //(no need at the moment) assign student object to correct location in the array (wait for put function to complete to do this step)
     public boolean readData(String fileName){
-        return false;
+        try {
+            BufferedReader buf = new BufferedReader(new FileReader(fileName));
+            String line;
+            buf.readLine(); //ignore first row
+            Customer cus;
+            while ((line = buf.readLine()) != null){
+                String[] data = line.split(",");
+                cus = new Customer(data[0],data[1],data[2],data[3]);
+                put(cus);
+            }
+            buf.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
