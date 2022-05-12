@@ -8,12 +8,12 @@ public class Main {
 		ui.run(fileName);
 
 		//from this is testing the hash function
-		int count = 0;
+/*		int count = 0;
 		for(CustomerNode node : ui.getCustomerList().getTable()){
 			if(node == null) {
 				count++;
 			}
 		}
-		System.out.println(count);
+		System.out.println(count);*/
 	}
 }
