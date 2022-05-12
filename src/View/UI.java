@@ -32,7 +32,10 @@ public class UI {
     public void run(String fileName){
         if(!customerList.readData(fileName)) {
             System.out.println("Cannot read file!!!");
+            pauseScreen();
+            System.exit(0);
         }
+        System.out.println("Successfully read file!!!");
         pauseScreen();
         clearScreen();
         //add code here to become complete UI
