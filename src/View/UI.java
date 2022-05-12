@@ -6,6 +6,7 @@ import Operation.CustomerHashTable;
 import java.util.Scanner;
 
 public class UI {
+
     private CustomerHashTable customerList;
     private Customer customer;
     private Scanner scanner = new Scanner(System.in);
@@ -14,6 +15,9 @@ public class UI {
         customerList = new CustomerHashTable();
     }
 
+    public CustomerHashTable getCustomerList() {
+        return customerList;
+    }
     public void clearScreen(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -23,6 +27,12 @@ public class UI {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nPress Enter key to continue...");
         scanner.nextLine();
+    }
+
+    public void run(String fileName){
+        if(!customerList.readData(fileName)) {
+            System.out.println("cannot read file");
+        }
     }
 
     public void RMITMenu() {
@@ -110,7 +120,7 @@ public class UI {
         String search_id = scanner.nextLine();
         if(!search_id.equals("") && customerList.get(search_id)!=null)
         {
-            System.out.println(get(search_id);
+            System.out.println(customerList.get(search_id));
 
         }else System.out.println("Invalid customer.");
     }
@@ -121,11 +131,10 @@ public class UI {
         String identify_id = scanner.nextLine();
         if(!identify_id.equals("")&& customerList.getList(identify_id)!=null)
         {
-            System.out.println(customerList.getList(search_id);
+            System.out.println(customerList.getList(identify_id));
         }else System.out.println("No customer is found.");
 
     }
 }
 
-}
 

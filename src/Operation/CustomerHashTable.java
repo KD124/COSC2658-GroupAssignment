@@ -63,7 +63,7 @@ public class CustomerHashTable {
             }
             else return false;      // already exists, can’t insert
         }
-        if (compare(customer.getId(),current.getCustomer().getId()) == 1) {
+        if (compare(customer.getId(),parent.getCustomer().getId()) == 1) {
             parent.setLeft(node);
         } else {
             parent.setRight(node);
