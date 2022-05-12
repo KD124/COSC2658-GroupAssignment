@@ -70,6 +70,10 @@ public class UI {
             {
                 option4UI();
             }
+            else
+            {
+                System.out.println("Invalid option.");
+            }
         }
     }
 
