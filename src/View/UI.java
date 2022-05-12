@@ -69,6 +69,7 @@ public class UI {
             {
                 System.out.println("Invalid option.");
             }
+            pauseScreen();
         }
     }
 
@@ -103,6 +104,7 @@ public class UI {
                     + "Phone: " + customer.getPhone() + "\n");
             System.out.println("Customer added.");
         }
+        pauseScreen();
     }
 
     private void Option2UI() {
@@ -112,6 +114,8 @@ public class UI {
         String update_user = scanner.nextLine();            // take id input that user want to search for
         if (!update_user.equals(""))       // check whether user input anything.
         {
+            System.out.println("Customer's ID: " + update_user);
+            pauseScreen();
             Customer CusID = customerList.get(update_user);        // searching function in table and store them inn CusID
             System.out.print("Please select information you want to update: ");
             String update_category = scanner.nextLine();
@@ -130,6 +134,7 @@ public class UI {
                 System.out.print("Phone number: ");
                 CusID.setPhone(scanner.nextLine());
             }
+            pauseScreen();
         }
     }
 
@@ -143,8 +148,6 @@ public class UI {
             System.out.println(customerList.get(search_id));
 
         }else System.out.println("Invalid customer.");
-        pauseScreen();
-        RMITMenu();
     }
     private void option4UI(){
         System.out.println("\nSEARCH LIST OF CUSTOMERS " + "\n" +
@@ -155,8 +158,7 @@ public class UI {
         {
             System.out.println(customerList.getList(identify_id));
         }else System.out.println("No customer is found.");
-        pauseScreen();
-        RMITMenu();
+
     }
 }
 
