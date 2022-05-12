@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class UI {
 
     private CustomerHashTable customerList;
-    private Customer customer;
     private Scanner scanner = new Scanner(System.in);
 
     public UI() {
@@ -77,12 +76,13 @@ public class UI {
         System.out.println("Please select an option below:");
         System.out.println("\t\t1. Add custormer.");
         System.out.println("\t\t2. Update customer.");                //
-        System.out.println("\t\t3. Search customer.");                // Search for a specific customer
-        System.out.println("\t\t4. Search for customers' details.");  // Search for a list of customers with information
+        System.out.println("\t\t3. Search one customer.");                // Search for a specific customer
+        System.out.println("\t\t4. Search list of customers.");  // Search for a list of customers with information
                                                                     // included in the query user desired
     }
 
     private void Option1UI() {
+        Customer customer = new Customer();
         System.out.println("\nADD NEW CUSTOMER" + "\n" +
                             "******************");
         System.out.print("Input an ID number: ");
@@ -145,13 +145,17 @@ public class UI {
         }else System.out.println("Invalid customer.");
     }
     private void option4UI(){
+        Customer[] customers;
         System.out.println("\nSEARCH LIST OF CUSTOMERS " + "\n" +
                 "******************");
         System.out.println("Enter customer's ID: ");
         String identify_id = scanner.nextLine();
-        if(!identify_id.equals("")&& customerList.getList(identify_id)!=null)
+        if(!identify_id.equals("")&& (customers = customerList.getList(identify_id))!=null)
         {
-            System.out.println(customerList.getList(identify_id));
+            for(Customer cus: customers){
+                if(cus == null) break;
+                System.out.println(cus.toString());
+            }
         }else System.out.println("No customer is found.");
 
     }
