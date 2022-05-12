@@ -6,8 +6,9 @@ public class Main {
 		String fileName = "customers.csv";
 		UI ui = new UI();
 		ui.run(fileName);
-		int count = 0;
+
 		//from this is testing the hash function
+		int count = 0;
 		for(CustomerNode node : ui.getCustomerList().getTable()){
 			if(node == null) {
 				count++;

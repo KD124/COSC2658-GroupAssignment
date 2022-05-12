@@ -31,8 +31,11 @@ public class UI {
 
     public void run(String fileName){
         if(!customerList.readData(fileName)) {
-            System.out.println("cannot read file");
+            System.out.println("Cannot read file!!!");
         }
+        pauseScreen();
+        clearScreen();
+        //add code here to become complete UI
     }
 
     public void RMITMenu() {

@@ -45,4 +45,8 @@ public class Customer {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + id + "\nfirst name: " + firstName + "\nlast name: " + lastName + "\nphone: " + phone + "\n";
+    }
 }
