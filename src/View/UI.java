@@ -18,14 +18,10 @@ public class UI {
     public CustomerHashTable getCustomerList() {
         return customerList;
     }
-    public void clearScreen(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
     public void pauseScreen(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nPress Enter key to continue...");
+        System.out.println("Press Enter key to continue...");
         scanner.nextLine();
     }
 
@@ -37,7 +33,6 @@ public class UI {
         }
         System.out.println("Successfully read file!!!");
         pauseScreen();
-        clearScreen();
         //add code here to become complete UI
         RMITMenu();
     }
@@ -78,7 +73,7 @@ public class UI {
     }
 
     private void Menu() {
-        System.out.println("RMIT system operational.");
+        System.out.println("\nRMIT SYSTEM OPERATIONAL.");
         System.out.println("Please select an option below:");
         System.out.println("\t\t1. Add custormer.");
         System.out.println("\t\t2. Update customer.");                //
@@ -88,7 +83,7 @@ public class UI {
     }
 
     private void Option1UI() {
-        System.out.println("Add new customer." + "\n" +
+        System.out.println("\nADD NEW CUSTOMER" + "\n" +
                             "******************");
         System.out.print("Input an ID number: ");
         customer.setId(scanner.nextLine());
@@ -111,9 +106,9 @@ public class UI {
     }
 
     private void Option2UI() {
-        System.out.println("Update customer's information." + "\n" +
+        System.out.println("\nUPDATE CUSTOMER." + "\n" +
                             "******************");
-        System.out.print("Customer: ");
+        System.out.print("Enter customer's id: ");
         String update_user = scanner.nextLine();            // take id input that user want to search for
         if (!update_user.equals(""))       // check whether user input anything.
         {
@@ -139,7 +134,7 @@ public class UI {
     }
 
     private void option3UI(){
-        System.out.println("Search customer's information by ID" + "\n" +
+        System.out.println("\nSEARCH ONE CUSTOMER" + "\n" +
                 "******************");
         System.out.println("Enter customer's ID: ");
         String search_id = scanner.nextLine();
@@ -150,7 +145,7 @@ public class UI {
         }else System.out.println("Invalid customer.");
     }
     private void option4UI(){
-        System.out.println("Search list of customer's information " + "\n" +
+        System.out.println("\nSEARCH LIST OF CUSTOMERS " + "\n" +
                 "******************");
         System.out.println("Enter customer's ID: ");
         String identify_id = scanner.nextLine();
