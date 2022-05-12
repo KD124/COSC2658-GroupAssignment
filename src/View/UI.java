@@ -143,6 +143,8 @@ public class UI {
             System.out.println(customerList.get(search_id));
 
         }else System.out.println("Invalid customer.");
+        pauseScreen();
+        RMITMenu();
     }
     private void option4UI(){
         System.out.println("\nSEARCH LIST OF CUSTOMERS " + "\n" +
@@ -153,7 +155,8 @@ public class UI {
         {
             System.out.println(customerList.getList(identify_id));
         }else System.out.println("No customer is found.");
-
+        pauseScreen();
+        RMITMenu();
     }
 }
 
