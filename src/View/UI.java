@@ -39,21 +39,36 @@ public class UI {
         pauseScreen();
         clearScreen();
         //add code here to become complete UI
+        RMITMenu();
     }
 
     public void RMITMenu() {
         while (true)
         {
             Menu();
-            //Option1UI();
-            //Option2UI();
             String choice;
-            System.out.print("Please choose an option: ");
+            System.out.print("Please choose an option(1->4): ");
             choice = scanner.nextLine();
             if (choice.equalsIgnoreCase("exit"))
             {
                 System.out.println("Exiting system. Have a good day!");
                 break;
+            }
+            else if (choice.equalsIgnoreCase("1"))
+            {
+                Option1UI();
+            }
+            else if (choice.equalsIgnoreCase(("2")))
+            {
+                Option2UI();
+            }
+            else if (choice.equalsIgnoreCase("3"))
+            {
+                option3UI();
+            }
+            else if (choice.equalsIgnoreCase("4"))
+            {
+                option4UI();
             }
         }
     }
