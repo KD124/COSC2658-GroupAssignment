@@ -88,6 +88,10 @@ public class UI {
                             "******************");
         System.out.print("Input an ID number: ");
         customer.setId(scanner.nextLine());
+        if(customerList.get(customer.getId()) != null){ //check if this id exist
+            System.out.println("This id already exists");
+            return;
+        }
         System.out.print("Input customer's first name: ");
         customer.setFirstName(scanner.nextLine());
         System.out.print("Input customer's last name: ");
@@ -97,14 +101,14 @@ public class UI {
         if (!customer.getId().equals("") && !customer.getFirstName().equals("")
                 && !customer.getLastName().equals("") && !customer.getPhone().equals(""))
         {
-            System.out.println("Customer information:\n"
-                    + "ID: " + customer.getId() + "\n"
-                    + "First name: " + customer.getFirstName() + "\n"
-                    + "Last name: " + customer.getLastName() + "\n"
-                    + "Phone: " + customer.getPhone() + "\n");
+            customerList.put(customer);
+            System.out.println("\nCustomer information {");
+            System.out.print(customer);
+            System.out.println("}");
             System.out.println("Customer added.");
+        }else {
+            System.out.println("Invalid input");
         }
-        pauseScreen();
     }
 
     private void Option2UI() {
@@ -114,40 +118,43 @@ public class UI {
         String update_user = scanner.nextLine();            // take id input that user want to search for
         if (!update_user.equals(""))       // check whether user input anything.
         {
-            System.out.println("Customer's ID: " + update_user);
-            pauseScreen();
-            Customer CusID = customerList.get(update_user);        // searching function in table and store them inn CusID
+            Customer cusID = customerList.get(update_user);        // searching function in table and store them inn CusID
+            if(cusID == null){  //id not found
+                System.out.println("Id not found");
+                return;
+            }
+            System.out.println("\n" + cusID);       //showing up customer information
             System.out.print("Please select information you want to update: ");
             String update_category = scanner.nextLine();
             if (update_category.equalsIgnoreCase("first name"))
             {
                 System.out.print("First name: ");
-                CusID.setFirstName(scanner.nextLine());
+                cusID.setFirstName(scanner.nextLine());
             }
             else if (update_category.equalsIgnoreCase("last name"))
             {
                 System.out.print("Last name: ");
-                CusID.setLastName(scanner.nextLine());
+                cusID.setLastName(scanner.nextLine());
             }
             else if (update_category.equalsIgnoreCase("phone"))
             {
                 System.out.print("Phone number: ");
-                CusID.setPhone(scanner.nextLine());
+                cusID.setPhone(scanner.nextLine());
             }
-            pauseScreen();
         }
     }
 
     private void option3UI(){
+        Customer cus;
         System.out.println("\nSEARCH ONE CUSTOMER" + "\n" +
                 "******************");
-        System.out.println("Enter customer's ID: ");
+        System.out.print("Enter customer's ID: ");
         String search_id = scanner.nextLine();
-        if(!search_id.equals("") && customerList.get(search_id)!=null)
+        if(!search_id.equals("") && (cus=customerList.get(search_id)) != null)
         {
-            System.out.println(customerList.get(search_id));
+            System.out.println("\n" + cus);
 
-        }else System.out.println("Invalid customer.");
+        }else System.out.println("Id not found");
     }
     private void option4UI(){
         Customer[] customers;
@@ -157,9 +164,10 @@ public class UI {
         String identify_id = scanner.nextLine();
         if(!identify_id.equals("")&& (customers = customerList.getList(identify_id))!=null)
         {
-            for(Customer cus: customers){
-                if(cus == null) break;
-                System.out.println(cus.toString());
+            for(int i = 0; i<customers.length; i++){
+                if(customers[i] == null) break;
+                System.out.print(i+1 + ". ");
+                System.out.println(customers[i]);
             }
         }else System.out.println("No customer is found.");
 

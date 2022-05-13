@@ -50,6 +50,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "ID: " + id + "\nfirst name: " + firstName + "\nlast name: " + lastName + "\nphone: " + phone + "\n";
+        return "ID: " + id + "\nFirst name: " + firstName + "\nLast name: " + lastName + "\nPhone: " + phone + "\n";
     }
 }
