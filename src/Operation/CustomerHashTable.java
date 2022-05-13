@@ -36,8 +36,8 @@ public class CustomerHashTable {
         return 0;
     }
 
-    public int hash(String s){
-        return (23*s.charAt(0) + 29*s.charAt(1) + 31*s.charAt(2) + 37*s.charAt(3) + 41*s.charAt(4)) % tableSize;
+    public int hash(String id){
+        return (23*id.charAt(0) + 29*id.charAt(1) + 31*id.charAt(2) + 37*id.charAt(3) + 41*id.charAt(4)) % tableSize;
     }
 
     public boolean put(Customer customer){  //return false if there is already this customer in database
